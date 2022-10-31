@@ -27,14 +27,14 @@ namespace SokobanWinForm.Classes
 
             for (int i = 0; i < 5; i++)
             {
-                LevelMatrix[i, 6] = MatrixValue.w;
+                LevelMatrix[i, 5] = MatrixValue.w;
                 LevelMatrix[i, 0] = MatrixValue.w;
             }
 
             for(int i = 0; i < 6; i++)
             {
                 LevelMatrix[0, i] = MatrixValue.w;
-                LevelMatrix[5, i] = MatrixValue.w;
+                LevelMatrix[4, i] = MatrixValue.w;
             }
             LevelMatrix[1, 1] = MatrixValue.p;
             LevelMatrix[2, 2] = MatrixValue.b;
@@ -44,7 +44,9 @@ namespace SokobanWinForm.Classes
 
         public bool moveDown()
         {
-            throw new NotImplementedException();
+
+
+            return true;
         }
 
         public bool moveLeft()
@@ -61,5 +63,7 @@ namespace SokobanWinForm.Classes
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }
