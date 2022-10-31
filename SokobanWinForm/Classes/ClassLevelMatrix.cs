@@ -57,6 +57,16 @@ namespace SokobanWinForm.Classes
             LevelMatrix = new MatrixValue[rows, columns];
         }
 
+        /// <summary>
+        /// конструктор
+        /// </summary>
+        /// <param name="levelMatrix">Матрица уровня</param>
+        public ClassLevelMatrix(MatrixValue[,] levelMatrix)
+        {
+            LevelMatrix = levelMatrix;
+        }
+
+
 
     }
 }
