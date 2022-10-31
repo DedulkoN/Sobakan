@@ -75,6 +75,18 @@ namespace SokobanWinForm
 
         }
 
+        private void FormMain_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            switch(e.KeyCode)
+            {
+                case Keys.Down:
+                    if( GameController.moveDown()) RePaint();
+                    break;
+                case Keys.Up:
+                    if (GameController.moveUp()) RePaint();
+                    break;
 
+            }
+        }
     }
 }

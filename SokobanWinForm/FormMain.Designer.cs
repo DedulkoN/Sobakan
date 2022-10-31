@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(683, 450);
             this.Name = "FormMain";
             this.Text = "Form1";
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.FormMain_PreviewKeyDown);
             this.ResumeLayout(false);
 
         }

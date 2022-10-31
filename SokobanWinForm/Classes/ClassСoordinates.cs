@@ -8,8 +8,8 @@ namespace SokobanWinForm.Classes
 {
     public class ClassСoordinates
     {
-        int x { get; set; }
-        int y { get; set; }
+       public int i { get; set; }
+       public int j { get; set; }
 
     }
 }

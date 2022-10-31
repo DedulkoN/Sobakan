@@ -34,7 +34,11 @@ namespace SokobanWinForm.Classes
         /// <summary>
         /// Пустая клетка
         /// </summary>
-        z 
+        z ,
+        /// <summary>
+        /// Игрок на цели
+        /// </summary>
+        pt 
     }
 
     /// <summary>

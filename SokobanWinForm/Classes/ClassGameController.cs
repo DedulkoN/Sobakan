@@ -44,9 +44,79 @@ namespace SokobanWinForm.Classes
 
         public bool moveDown()
         {
+            ClassСoordinates coordinate = getPlayerCoordinate();
+            //Проверка на выход за границу
+            if ((coordinate.j+1)==6) 
+                return false;
 
+            //перемещение на пустоe поле
+            if (LevelMatrix[coordinate.i, coordinate.j+1]==MatrixValue.z)
+            {
+               
+                LevelMatrix[coordinate.i, coordinate.j+1] = MatrixValue.p;
+                if (LevelMatrix[coordinate.i, coordinate.j] == MatrixValue.p)
+                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                else LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.t;
+                return true;
+            }
 
-            return true;
+            //перемещение на Целевое
+            if (LevelMatrix[coordinate.i, coordinate.j + 1] == MatrixValue.t)
+            {
+                LevelMatrix[coordinate.i, coordinate.j + 1] = MatrixValue.pt;
+                LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                return true;
+            }
+
+            //сдвиг ящика обычный: в никуда, на пустое, на целевое
+            if (LevelMatrix[coordinate.i, coordinate.j + 1] == MatrixValue.b )
+            {
+                if ((coordinate.j + 2) == 6) 
+                    return false;
+
+                if (LevelMatrix[coordinate.i, coordinate.j + 2] == MatrixValue.z)
+                {
+                    LevelMatrix[coordinate.i, coordinate.j + 1] = MatrixValue.p;
+                    LevelMatrix[coordinate.i, coordinate.j + 2] = MatrixValue.b;
+                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    return true;
+                }
+
+                if (LevelMatrix[coordinate.i, coordinate.j + 2] == MatrixValue.t)
+                {
+                    LevelMatrix[coordinate.i, coordinate.j + 1] = MatrixValue.p;
+                    LevelMatrix[coordinate.i, coordinate.j + 2] = MatrixValue.bt;
+                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    return true;
+                }
+
+            }
+
+            //сдвиг ящика с целевой точки
+            if (LevelMatrix[coordinate.i, coordinate.j + 1] == MatrixValue.bt)
+            {
+                if ((coordinate.j + 2) == 6)
+                    return false;
+
+                if (LevelMatrix[coordinate.i, coordinate.j + 2] == MatrixValue.z)
+                {
+                    LevelMatrix[coordinate.i, coordinate.j + 1] = MatrixValue.pt;
+                    LevelMatrix[coordinate.i, coordinate.j + 2] = MatrixValue.b;
+                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    return true;
+
+                }
+                if (LevelMatrix[coordinate.i, coordinate.j + 2] == MatrixValue.t)
+                {
+                    LevelMatrix[coordinate.i, coordinate.j + 1] = MatrixValue.pt;
+                    LevelMatrix[coordinate.i, coordinate.j + 2] = MatrixValue.bt;
+                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    return true;
+                }
+
+            }    
+
+                return false;
         }
 
         public bool moveLeft()
@@ -61,9 +131,98 @@ namespace SokobanWinForm.Classes
 
         public bool moveUp()
         {
-            throw new NotImplementedException();
+            ClassСoordinates coordinate = getPlayerCoordinate();
+            //Проверка на выход за границу
+            if ((coordinate.j - 1) == -1)
+                return false;
+
+            //перемещение на пустоe поле
+            if (LevelMatrix[coordinate.i, coordinate.j - 1] == MatrixValue.z)
+            {
+
+                LevelMatrix[coordinate.i, coordinate.j - 1] = MatrixValue.p;
+                if (LevelMatrix[coordinate.i, coordinate.j] == MatrixValue.p)
+                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                else LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.t;
+                return true;
+            }
+
+            //перемещение на Целевое
+            if (LevelMatrix[coordinate.i, coordinate.j - 1] == MatrixValue.t)
+            {
+                LevelMatrix[coordinate.i, coordinate.j - 1] = MatrixValue.pt;
+                LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                return true;
+            }
+
+            //сдвиг ящика обычный: в никуда, на пустое, на целевое
+            if (LevelMatrix[coordinate.i, coordinate.j - 1] == MatrixValue.b)
+            {
+                if ((coordinate.j - 2) == -1)
+                    return false;
+
+                if (LevelMatrix[coordinate.i, coordinate.j - 2] == MatrixValue.z)
+                {
+                    LevelMatrix[coordinate.i, coordinate.j - 1] = MatrixValue.p;
+                    LevelMatrix[coordinate.i, coordinate.j - 2] = MatrixValue.b;
+                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    return true;
+                }
+
+                if (LevelMatrix[coordinate.i, coordinate.j - 2] == MatrixValue.t)
+                {
+                    LevelMatrix[coordinate.i, coordinate.j - 1] = MatrixValue.p;
+                    LevelMatrix[coordinate.i, coordinate.j - 2] = MatrixValue.bt;
+                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    return true;
+                }
+
+            }
+
+            //сдвиг ящика с целевой точки
+            if (LevelMatrix[coordinate.i, coordinate.j + 1] == MatrixValue.bt)
+            {
+                if ((coordinate.j + 2) == 6)
+                    return false;
+
+                if (LevelMatrix[coordinate.i, coordinate.j + 2] == MatrixValue.z)
+                {
+                    LevelMatrix[coordinate.i, coordinate.j + 1] = MatrixValue.pt;
+                    LevelMatrix[coordinate.i, coordinate.j + 2] = MatrixValue.b;
+                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    return true;
+
+                }
+                if (LevelMatrix[coordinate.i, coordinate.j + 2] == MatrixValue.t)
+                {
+                    LevelMatrix[coordinate.i, coordinate.j + 1] = MatrixValue.pt;
+                    LevelMatrix[coordinate.i, coordinate.j + 2] = MatrixValue.bt;
+                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    return true;
+                }
+
+            }
+
+            return false;
         }
 
+        /// <summary>
+        /// Поиск нахождения игрока
+        /// </summary>
+        /// <returns>Координаты</returns>
+        private ClassСoordinates getPlayerCoordinate()
+        {
+            ClassСoordinates сoordinates = new ClassСoordinates();
+            for (int i = 0; i < 5; i++)
+                for (int j = 0; j < 6; j++)
+                    if (LevelMatrix[i, j] == MatrixValue.p)
+                    {
+                        сoordinates.i = i;
+                        сoordinates.j = j;
+                    }
+
+            return сoordinates;
+        }
         
     }
 }
