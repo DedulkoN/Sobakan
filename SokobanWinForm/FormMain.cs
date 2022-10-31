@@ -64,7 +64,11 @@ namespace SokobanWinForm
                         case MatrixValue.bt:
                             pictures[i, j].Image = Image.FromFile("Image/BoxOnTarget.png");
                             break;
+                        case MatrixValue.pt:
+                            pictures[i, j].Image = Image.FromFile("Image/PlayerTarget.png");
+                            break;
                         default:
+
                             break;
 
                     }
@@ -84,6 +88,12 @@ namespace SokobanWinForm
                     break;
                 case Keys.Up:
                     if (GameController.moveUp()) RePaint();
+                    break;
+                case Keys.Left:
+                    if (GameController.moveLeft()) RePaint();
+                    break;
+                case Keys.Right:
+                    if (GameController.moveRight()) RePaint();
                     break;
 
             }
