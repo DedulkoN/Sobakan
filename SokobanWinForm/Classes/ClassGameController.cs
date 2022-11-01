@@ -7,7 +7,7 @@ using SokobanWinForm.Interfases;
 
 namespace SokobanWinForm.Classes
 {
-    internal class ClassGameController: ClassLevelMatrix, InterfaceMoving, InterfaceWorkingWithFile
+    internal class ClassGameController: ClassLevelMatrix, InterfaceMoving
     {
         //выше - множественное наследование (один класс и интерфейсы в нужном числе)
 
@@ -16,25 +16,25 @@ namespace SokobanWinForm.Classes
         /// Конструктор
         /// </summary>
        public ClassGameController()
-            :base (5,6) 
+            :base (6,7) 
         {
             //выше - вызов конструктора базового класса из класса-наследника
 
             //заполнение матрицы уровня, пока так - потом сделать из файла
-            for (int i = 0; i < 5; i++)
-                for(int j = 0; j < 6; j++)
+            for (int i = 0; i < i_count; i++)
+                for(int j = 0; j < j_count; j++)
                 { LevelMatrix[i, j] = MatrixValue.z; }
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < i_count; i++)
             {
-                LevelMatrix[i, 5] = MatrixValue.w;
+                LevelMatrix[i, j_count-1] = MatrixValue.w;
                 LevelMatrix[i, 0] = MatrixValue.w;
             }
 
-            for(int i = 0; i < 6; i++)
+            for(int i = 0; i < j_count; i++)
             {
                 LevelMatrix[0, i] = MatrixValue.w;
-                LevelMatrix[4, i] = MatrixValue.w;
+                LevelMatrix[i_count-1, i] = MatrixValue.w;
             }
             LevelMatrix[1, 1] = MatrixValue.p;
             LevelMatrix[2, 2] = MatrixValue.b;
@@ -42,6 +42,7 @@ namespace SokobanWinForm.Classes
 
         }
 
+       
         public bool moveDown()
         {
             ClassСoordinates coordinate = getPlayerCoordinate();
@@ -349,6 +350,7 @@ namespace SokobanWinForm.Classes
 
             return false;
         }
+      
 
         /// <summary>
         /// Поиск нахождения игрока
@@ -357,8 +359,8 @@ namespace SokobanWinForm.Classes
         private ClassСoordinates getPlayerCoordinate()
         {
             ClassСoordinates сoordinates = new ClassСoordinates();
-            for (int i = 0; i < 5; i++)
-                for (int j = 0; j < 6; j++)
+            for (int i = 0; i < i_count; i++)
+                for (int j = 0; j < j_count; j++)
                     if (LevelMatrix[i, j] == MatrixValue.p || LevelMatrix[i, j] == MatrixValue.pt)
                     {
                         сoordinates.i = i;

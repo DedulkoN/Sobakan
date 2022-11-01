@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
+using SokobanWinForm.Interfases;
+using System.IO;
 
 namespace SokobanWinForm.Classes
 {
@@ -41,10 +44,11 @@ namespace SokobanWinForm.Classes
         pt 
     }
 
+    [Serializable]
     /// <summary>
     /// матрица уровня
     /// </summary>
-    public class ClassLevelMatrix
+    public class ClassLevelMatrix:InterfaceWorkingWithFile
     {
         /// <summary>
         /// кол-во строк
@@ -78,11 +82,49 @@ namespace SokobanWinForm.Classes
         public ClassLevelMatrix(MatrixValue[,] levelMatrix)
         {
             LevelMatrix = levelMatrix;
-            i_count = levelMatrix.GetLength(0);
-            j_count = levelMatrix.GetLength(1);
+            GetMatrixDimension();
         }
 
+        public bool LoadFromFile(string filename)
+        {
+            //загрузка и сохранение уровня реализовано через сериализацию класса
+            try
+            {
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(ClassLevelMatrix));
+                FileStream fs = new FileStream(filename, FileMode.Open);                
+                var temp = xmlSerializer.Deserialize(fs) as ClassLevelMatrix;
+                this.LevelMatrix = temp.LevelMatrix;
+                GetMatrixDimension();
+                return true;
 
+            }
+            catch { return false; }
+        }
 
+        public bool SaveToFile(string filename)
+        {
+            try
+            {
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(ClassLevelMatrix));
+                           
+                using (FileStream fs = new FileStream(filename, FileMode.CreateNew))
+                {
+                    xmlSerializer.Serialize(fs, this);
+
+                }
+               
+                return true;
+            }
+            catch { return false; }
+        }
+
+        /// <summary>
+        /// подсчет размерности матрицы
+        /// </summary>
+        private void GetMatrixDimension()
+        {
+            i_count = LevelMatrix.GetLength(0);
+            j_count = LevelMatrix.GetLength(1);
+        }
     }
 }

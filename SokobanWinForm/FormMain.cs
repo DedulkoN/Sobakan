@@ -33,14 +33,14 @@ namespace SokobanWinForm
             
             if (pictures != null)
             {
-                for (int i = 0; i < 5; i++)
-                    for (int j = 0; j < 6; j++)
-                        this.Controls.Remove(pictures[i, j]);                
+                for (int i = 0; i < GameController.i_count; i++)
+                    for (int j = 0; j < GameController.j_count; j++)
+                        panel1.Controls.Remove(pictures[i, j]);                
             }
-          pictures = new PictureBox[5, 6];
+          pictures = new PictureBox[GameController.i_count, GameController.j_count];
 
-            for (int i = 0; i < 5; i++)
-                for(int j = 0; j < 6; j++)
+            for (int i = 0; i < GameController.i_count; i++)
+                for(int j = 0; j < GameController.j_count; j++)
                 {
                     pictures[i, j] = new PictureBox();
                     pictures[i, j].Size = new Size(40, 40);
@@ -72,7 +72,7 @@ namespace SokobanWinForm
                             break;
 
                     }
-                    this.Controls.Add(pictures[i, j]);
+                    panel1.Controls.Add(pictures[i, j]);
                     
                 }
 
