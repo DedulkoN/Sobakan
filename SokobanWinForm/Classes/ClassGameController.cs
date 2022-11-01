@@ -7,19 +7,17 @@ using SokobanWinForm.Interfases;
 
 namespace SokobanWinForm.Classes
 {
-    internal class ClassGameController: ClassLevelMatrix, InterfaceMoving, InterfaceGameVictory
+    [Serializable]
+    internal class ClassGameController: ClassLevelMatrix,  InterfaceMoving, InterfaceGameVictory
     {
         //выше - множественное наследование (один класс и интерфейсы в нужном числе)
-
-
+      
         /// <summary>
         /// Конструктор
         /// </summary>
-       public ClassGameController()
-            :base (6,7) 
-        {
-            //выше - вызов конструктора базового класса из класса-наследника
-
+       public ClassGameController():base(6,7)
+            
+        {            
             //заполнение матрицы уровня, пока так - потом сделать из файла
             for (int i = 0; i < i_count; i++)
                 for(int j = 0; j < j_count; j++)
@@ -27,14 +25,14 @@ namespace SokobanWinForm.Classes
 
             for (int i = 0; i < i_count; i++)
             {
-                LevelMatrix[i, j_count-1] = MatrixValue.w;
+                LevelMatrix[i, j_count -1] = MatrixValue.w;
                 LevelMatrix[i, 0] = MatrixValue.w;
             }
 
             for(int i = 0; i < j_count; i++)
             {
                 LevelMatrix[0, i] = MatrixValue.w;
-                LevelMatrix[i_count-1, i] = MatrixValue.w;
+                LevelMatrix[i_count -1, i] = MatrixValue.w;
             }
             LevelMatrix[1, 1] = MatrixValue.p;
             LevelMatrix[2, 2] = MatrixValue.b;
@@ -42,18 +40,19 @@ namespace SokobanWinForm.Classes
 
         }
 
-       
+
+
         public bool moveDown()
         {
             ClassСoordinates coordinate = getPlayerCoordinate();
             //Проверка на выход за границу
-            if ((coordinate.j+1)==j_count) 
+            if ((coordinate.j+1)== j_count) 
                 return false;
 
             //перемещение на пустоe поле
             if (LevelMatrix[coordinate.i, coordinate.j+1]==MatrixValue.z)
             {
-               
+
                 LevelMatrix[coordinate.i, coordinate.j+1] = MatrixValue.p;
                 if (LevelMatrix[coordinate.i, coordinate.j] == MatrixValue.p)
                     LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
@@ -351,6 +350,7 @@ namespace SokobanWinForm.Classes
             return false;
         }
 
+       
         public void Victory()
         {
             throw new NotImplementedException();
@@ -358,7 +358,12 @@ namespace SokobanWinForm.Classes
 
         public bool VictoryValidate()
         {
-            throw new NotImplementedException();
+           for (int i =0; i< i_count; i++)
+                for(int j=0;j< j_count;j++)
+                {
+                    if (LevelMatrix[i, j] == MatrixValue.b) return false;
+                }
+            return true;
         }
 
 
@@ -379,6 +384,16 @@ namespace SokobanWinForm.Classes
 
             return сoordinates;
         }
-        
+
+        /// <summary>
+        /// перезапуск уровня
+        /// </summary>
+        /// <returns></returns>
+        public bool RestartLevel()
+        {
+            return LoadFromFile(thisFileName);
+        }
+
+
     }
 }

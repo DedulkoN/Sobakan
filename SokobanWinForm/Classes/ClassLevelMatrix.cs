@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using SokobanWinForm.Interfases;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace SokobanWinForm.Classes
 {
@@ -63,6 +64,9 @@ namespace SokobanWinForm.Classes
         /// </summary>
         public MatrixValue[,] LevelMatrix;
 
+        [NonSerialized]
+        public string thisFileName;
+
         /// <summary>
         /// конструктор
         /// </summary>
@@ -73,6 +77,15 @@ namespace SokobanWinForm.Classes
             LevelMatrix = new MatrixValue[rows, columns];
             i_count = rows;
             j_count = columns;
+        }
+
+        /// <summary>
+        /// конструктор
+        /// </summary>   
+        public ClassLevelMatrix()
+        {
+
+
         }
 
         /// <summary>
@@ -90,11 +103,18 @@ namespace SokobanWinForm.Classes
             //загрузка и сохранение уровня реализовано через сериализацию класса
             try
             {
-                XmlSerializer xmlSerializer = new XmlSerializer(typeof(ClassLevelMatrix));
-                FileStream fs = new FileStream(filename, FileMode.Open);                
-                var temp = xmlSerializer.Deserialize(fs) as ClassLevelMatrix;
-                this.LevelMatrix = temp.LevelMatrix;
-                GetMatrixDimension();
+
+                BinaryFormatter formatter = new BinaryFormatter();
+                using (FileStream fs = new FileStream(filename, FileMode.Open))
+                {
+                                  
+                    var temp = formatter.Deserialize(fs) as ClassLevelMatrix;
+                    this.LevelMatrix = temp.LevelMatrix;
+                    GetMatrixDimension();
+                    thisFileName = filename;
+                }
+
+               
                 return true;
 
             }
@@ -105,17 +125,21 @@ namespace SokobanWinForm.Classes
         {
             try
             {
-                XmlSerializer xmlSerializer = new XmlSerializer(typeof(ClassLevelMatrix));
-                           
-                using (FileStream fs = new FileStream(filename, FileMode.CreateNew))
-                {
-                    xmlSerializer.Serialize(fs, this);
+              //  XmlSerializer xmlSerializer = new XmlSerializer(typeof(ClassLevelMatrix));
+                BinaryFormatter formatter = new BinaryFormatter();
 
+                 using (FileStream fs = new FileStream(filename, FileMode.Create))
+                {
+                //xmlSerializer.Serialize(fs, this);
+                formatter.Serialize(fs, this);
                 }
                
                 return true;
             }
-            catch { return false; }
+            catch {
+                
+               return false; 
+           }
         }
 
         /// <summary>

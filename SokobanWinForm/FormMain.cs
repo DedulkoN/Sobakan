@@ -97,6 +97,18 @@ namespace SokobanWinForm
                     break;
 
             }
+            if (GameController.VictoryValidate()) MessageBox.Show("победа!");
+        }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GameController.SaveToFile("1.lvl");
+        }
+
+        private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GameController.LoadFromFile("1.lvl");
+            RePaint();
         }
     }
 }
