@@ -85,30 +85,44 @@ namespace SokobanWinForm
             {
                 case Keys.Down:
                     if( GameController.moveDown()) RePaint();
+                    GameController.count_step++;
                     break;
                 case Keys.Up:
                     if (GameController.moveUp()) RePaint();
+                    GameController.count_step++;
                     break;
                 case Keys.Left:
                     if (GameController.moveLeft()) RePaint();
+                    GameController.count_step++;
                     break;
                 case Keys.Right:
                     if (GameController.moveRight()) RePaint();
+                    GameController.count_step++;
                     break;
-
             }
+           
+            toolStripStatusLabel1.Text = GameController.getSteps();
             if (GameController.VictoryValidate()) MessageBox.Show("победа!");
         }
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GameController.SaveToFile("1.lvl");
+            GameController.SaveToFile("5.lvl");
         }
 
         private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GameController.LoadFromFile("1.lvl");
+            GameController.LoadFromFile("5.lvl");
             RePaint();
+        }
+
+        private void перезапуститьТекущийToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Перезапустить уровень?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                GameController.RestartLevel();
+                RePaint();
+             }
         }
     }
 }

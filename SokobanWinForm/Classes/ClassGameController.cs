@@ -12,12 +12,14 @@ namespace SokobanWinForm.Classes
     {
         //выше - множественное наследование (один класс и интерфейсы в нужном числе)
       
+        public int count_step;
+
         /// <summary>
         /// Конструктор
         /// </summary>
-       public ClassGameController():base(6,7)
-            
-        {            
+       public ClassGameController():base(8,5)            
+        {
+            count_step = 0;
             //заполнение матрицы уровня, пока так - потом сделать из файла
             for (int i = 0; i < i_count; i++)
                 for(int j = 0; j < j_count; j++)
@@ -35,8 +37,14 @@ namespace SokobanWinForm.Classes
                 LevelMatrix[i_count -1, i] = MatrixValue.w;
             }
             LevelMatrix[1, 1] = MatrixValue.p;
-            LevelMatrix[2, 2] = MatrixValue.b;
-            LevelMatrix[3, 4] = MatrixValue.t;
+            LevelMatrix[2, 1] = MatrixValue.b;
+            LevelMatrix[3, 1] = MatrixValue.t;
+            LevelMatrix[4, 1] = MatrixValue.b;
+            LevelMatrix[5, 1] = MatrixValue.t;
+            LevelMatrix[4, 3] = MatrixValue.b;
+            LevelMatrix[1, 3] = MatrixValue.t;
+
+
 
         }
 
@@ -78,7 +86,9 @@ namespace SokobanWinForm.Classes
                 {
                     LevelMatrix[coordinate.i, coordinate.j + 1] = MatrixValue.p;
                     LevelMatrix[coordinate.i, coordinate.j + 2] = MatrixValue.b;
-                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    if (LevelMatrix[coordinate.i, coordinate.j] == MatrixValue.p)
+                        LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    else LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.t;
                     return true;
                 }
 
@@ -86,7 +96,9 @@ namespace SokobanWinForm.Classes
                 {
                     LevelMatrix[coordinate.i, coordinate.j + 1] = MatrixValue.p;
                     LevelMatrix[coordinate.i, coordinate.j + 2] = MatrixValue.bt;
-                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    if (LevelMatrix[coordinate.i, coordinate.j] == MatrixValue.p)
+                        LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    else LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.t;
                     return true;
                 }
 
@@ -102,7 +114,9 @@ namespace SokobanWinForm.Classes
                 {
                     LevelMatrix[coordinate.i, coordinate.j + 1] = MatrixValue.pt;
                     LevelMatrix[coordinate.i, coordinate.j + 2] = MatrixValue.b;
-                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    if (LevelMatrix[coordinate.i, coordinate.j] == MatrixValue.p)
+                        LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    else LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.t;
                     return true;
 
                 }
@@ -110,7 +124,9 @@ namespace SokobanWinForm.Classes
                 {
                     LevelMatrix[coordinate.i, coordinate.j + 1] = MatrixValue.pt;
                     LevelMatrix[coordinate.i, coordinate.j + 2] = MatrixValue.bt;
-                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    if (LevelMatrix[coordinate.i, coordinate.j] == MatrixValue.p)
+                        LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    else LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.t;
                     return true;
                 }
 
@@ -155,7 +171,9 @@ namespace SokobanWinForm.Classes
                 {
                     LevelMatrix[coordinate.i- 1, coordinate.j ] = MatrixValue.p;
                     LevelMatrix[coordinate.i- 2, coordinate.j ] = MatrixValue.b;
-                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    if (LevelMatrix[coordinate.i, coordinate.j] == MatrixValue.p)
+                        LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    else LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.t;
                     return true;
                 }
 
@@ -163,7 +181,9 @@ namespace SokobanWinForm.Classes
                 {
                     LevelMatrix[coordinate.i- 1, coordinate.j ] = MatrixValue.p;
                     LevelMatrix[coordinate.i- 2, coordinate.j ] = MatrixValue.bt;
-                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    if (LevelMatrix[coordinate.i, coordinate.j] == MatrixValue.p)
+                        LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    else LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.t;
                     return true;
                 }
 
@@ -179,7 +199,9 @@ namespace SokobanWinForm.Classes
                 {
                     LevelMatrix[coordinate.i - 1, coordinate.j ] = MatrixValue.pt;
                     LevelMatrix[coordinate.i - 2, coordinate.j ] = MatrixValue.b;
-                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    if (LevelMatrix[coordinate.i, coordinate.j] == MatrixValue.p)
+                        LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    else LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.t;
                     return true;
 
                 }
@@ -187,7 +209,9 @@ namespace SokobanWinForm.Classes
                 {
                     LevelMatrix[coordinate.i - 1, coordinate.j ] = MatrixValue.pt;
                     LevelMatrix[coordinate.i - 2, coordinate.j ] = MatrixValue.bt;
-                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    if (LevelMatrix[coordinate.i, coordinate.j] == MatrixValue.p)
+                        LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    else LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.t;
                     return true;
                 }
 
@@ -232,7 +256,9 @@ namespace SokobanWinForm.Classes
                 {
                     LevelMatrix[coordinate.i + 1, coordinate.j] = MatrixValue.p;
                     LevelMatrix[coordinate.i + 2, coordinate.j] = MatrixValue.b;
-                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    if (LevelMatrix[coordinate.i, coordinate.j] == MatrixValue.p)
+                        LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    else LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.t;
                     return true;
                 }
 
@@ -240,7 +266,9 @@ namespace SokobanWinForm.Classes
                 {
                     LevelMatrix[coordinate.i + 1, coordinate.j] = MatrixValue.p;
                     LevelMatrix[coordinate.i + 2, coordinate.j] = MatrixValue.bt;
-                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    if (LevelMatrix[coordinate.i, coordinate.j] == MatrixValue.p)
+                        LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    else LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.t;
                     return true;
                 }
 
@@ -256,7 +284,9 @@ namespace SokobanWinForm.Classes
                 {
                     LevelMatrix[coordinate.i + 1, coordinate.j] = MatrixValue.pt;
                     LevelMatrix[coordinate.i + 2, coordinate.j] = MatrixValue.b;
-                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    if (LevelMatrix[coordinate.i, coordinate.j] == MatrixValue.p)
+                        LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    else LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.t;
                     return true;
 
                 }
@@ -264,7 +294,9 @@ namespace SokobanWinForm.Classes
                 {
                     LevelMatrix[coordinate.i + 1, coordinate.j] = MatrixValue.pt;
                     LevelMatrix[coordinate.i + 2, coordinate.j] = MatrixValue.bt;
-                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    if (LevelMatrix[coordinate.i, coordinate.j] == MatrixValue.p)
+                        LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    else LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.t;
                     return true;
                 }
 
@@ -309,7 +341,9 @@ namespace SokobanWinForm.Classes
                 {
                     LevelMatrix[coordinate.i, coordinate.j - 1] = MatrixValue.p;
                     LevelMatrix[coordinate.i, coordinate.j - 2] = MatrixValue.b;
-                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    if (LevelMatrix[coordinate.i, coordinate.j] == MatrixValue.p)
+                        LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    else LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.t;
                     return true;
                 }
 
@@ -317,7 +351,9 @@ namespace SokobanWinForm.Classes
                 {
                     LevelMatrix[coordinate.i, coordinate.j - 1] = MatrixValue.p;
                     LevelMatrix[coordinate.i, coordinate.j - 2] = MatrixValue.bt;
-                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    if (LevelMatrix[coordinate.i, coordinate.j] == MatrixValue.p)
+                        LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    else LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.t;
                     return true;
                 }
 
@@ -333,7 +369,9 @@ namespace SokobanWinForm.Classes
                 {
                     LevelMatrix[coordinate.i, coordinate.j - 1] = MatrixValue.pt;
                     LevelMatrix[coordinate.i, coordinate.j - 2] = MatrixValue.b;
-                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    if (LevelMatrix[coordinate.i, coordinate.j] == MatrixValue.p)
+                        LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    else LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.t;
                     return true;
 
                 }
@@ -341,7 +379,9 @@ namespace SokobanWinForm.Classes
                 {
                     LevelMatrix[coordinate.i, coordinate.j - 1] = MatrixValue.pt;
                     LevelMatrix[coordinate.i, coordinate.j - 2] = MatrixValue.bt;
-                    LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    if (LevelMatrix[coordinate.i, coordinate.j] == MatrixValue.p)
+                        LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
+                    else LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.t;
                     return true;
                 }
 
@@ -391,9 +431,18 @@ namespace SokobanWinForm.Classes
         /// <returns></returns>
         public bool RestartLevel()
         {
+            count_step = 0;
             return LoadFromFile(thisFileName);
         }
 
+        /// <summary>
+        /// Сообщение о шагах
+        /// </summary>
+        /// <returns></returns>
+        public string getSteps()
+        {
+            return $"Пройдено шагов: {count_step}";
+        }
 
     }
 }

@@ -35,6 +35,12 @@
             this.играToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.уровеньToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.перезапуститьТекущийToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.легкойСложностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.среднейСложностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.высокойСложностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -42,7 +48,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.играToolStripMenuItem});
+            this.играToolStripMenuItem,
+            this.уровеньToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(683, 24);
@@ -95,6 +102,48 @@
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
             this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click);
             // 
+            // уровеньToolStripMenuItem
+            // 
+            this.уровеньToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.перезапуститьТекущийToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.легкойСложностиToolStripMenuItem,
+            this.среднейСложностиToolStripMenuItem,
+            this.высокойСложностиToolStripMenuItem});
+            this.уровеньToolStripMenuItem.Name = "уровеньToolStripMenuItem";
+            this.уровеньToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.уровеньToolStripMenuItem.Text = "Уровень";
+            // 
+            // перезапуститьТекущийToolStripMenuItem
+            // 
+            this.перезапуститьТекущийToolStripMenuItem.Name = "перезапуститьТекущийToolStripMenuItem";
+            this.перезапуститьТекущийToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.перезапуститьТекущийToolStripMenuItem.Text = "Перезапустить текущий";
+            this.перезапуститьТекущийToolStripMenuItem.Click += new System.EventHandler(this.перезапуститьТекущийToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(203, 6);
+            // 
+            // легкойСложностиToolStripMenuItem
+            // 
+            this.легкойСложностиToolStripMenuItem.Name = "легкойСложностиToolStripMenuItem";
+            this.легкойСложностиToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.легкойСложностиToolStripMenuItem.Text = "Легкой сложности";
+            // 
+            // среднейСложностиToolStripMenuItem
+            // 
+            this.среднейСложностиToolStripMenuItem.Name = "среднейСложностиToolStripMenuItem";
+            this.среднейСложностиToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.среднейСложностиToolStripMenuItem.Text = "Средней сложности";
+            // 
+            // высокойСложностиToolStripMenuItem
+            // 
+            this.высокойСложностиToolStripMenuItem.Name = "высокойСложностиToolStripMenuItem";
+            this.высокойСложностиToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.высокойСложностиToolStripMenuItem.Text = "Высокой сложности";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -125,6 +174,12 @@
         private System.Windows.Forms.ToolStripMenuItem играToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem уровеньToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem перезапуститьТекущийToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem легкойСложностиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem среднейСложностиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem высокойСложностиToolStripMenuItem;
     }
 }
 
