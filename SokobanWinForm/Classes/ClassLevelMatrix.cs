@@ -47,6 +47,14 @@ namespace SokobanWinForm.Classes
     public class ClassLevelMatrix
     {
         /// <summary>
+        /// кол-во строк
+        /// </summary>
+        public int i_count { get; set; }
+        /// <summary>
+        /// кол-во столбцов
+        /// </summary>
+        public int j_count { get; set; }
+        /// <summary>
         /// сама матрица уровня
         /// </summary>
         public MatrixValue[,] LevelMatrix;
@@ -59,6 +67,8 @@ namespace SokobanWinForm.Classes
         public ClassLevelMatrix(int rows, int columns )
         {
             LevelMatrix = new MatrixValue[rows, columns];
+            i_count = rows;
+            j_count = columns;
         }
 
         /// <summary>
@@ -68,6 +78,8 @@ namespace SokobanWinForm.Classes
         public ClassLevelMatrix(MatrixValue[,] levelMatrix)
         {
             LevelMatrix = levelMatrix;
+            i_count = levelMatrix.GetLength(0);
+            j_count = levelMatrix.GetLength(1);
         }
 
 
