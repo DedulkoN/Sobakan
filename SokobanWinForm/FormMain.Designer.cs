@@ -41,6 +41,21 @@
             this.легкойСложностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.среднейСложностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.высокойСложностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.уровень1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.уровень2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.уровень3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.уровень4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.уровень5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.уровень6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.уровень7ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.уровень8ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.уровень9ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.уровень10ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.уровень11ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.уровень12ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.уровень13ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.уровень14ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.уровень15ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -87,6 +102,7 @@
             this.играToolStripMenuItem.Name = "играToolStripMenuItem";
             this.играToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.играToolStripMenuItem.Text = "Игра";
+            this.играToolStripMenuItem.Visible = false;
             // 
             // сохранитьToolStripMenuItem
             // 
@@ -128,21 +144,144 @@
             // 
             // легкойСложностиToolStripMenuItem
             // 
+            this.легкойСложностиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.уровень1ToolStripMenuItem,
+            this.уровень2ToolStripMenuItem,
+            this.уровень3ToolStripMenuItem,
+            this.уровень4ToolStripMenuItem,
+            this.уровень5ToolStripMenuItem});
             this.легкойСложностиToolStripMenuItem.Name = "легкойСложностиToolStripMenuItem";
             this.легкойСложностиToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.легкойСложностиToolStripMenuItem.Text = "Легкой сложности";
             // 
             // среднейСложностиToolStripMenuItem
             // 
+            this.среднейСложностиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.уровень6ToolStripMenuItem,
+            this.уровень7ToolStripMenuItem,
+            this.уровень8ToolStripMenuItem,
+            this.уровень9ToolStripMenuItem,
+            this.уровень10ToolStripMenuItem});
             this.среднейСложностиToolStripMenuItem.Name = "среднейСложностиToolStripMenuItem";
             this.среднейСложностиToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.среднейСложностиToolStripMenuItem.Text = "Средней сложности";
             // 
             // высокойСложностиToolStripMenuItem
             // 
+            this.высокойСложностиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.уровень11ToolStripMenuItem,
+            this.уровень12ToolStripMenuItem,
+            this.уровень13ToolStripMenuItem,
+            this.уровень14ToolStripMenuItem,
+            this.уровень15ToolStripMenuItem});
             this.высокойСложностиToolStripMenuItem.Name = "высокойСложностиToolStripMenuItem";
             this.высокойСложностиToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.высокойСложностиToolStripMenuItem.Text = "Высокой сложности";
+            // 
+            // уровень1ToolStripMenuItem
+            // 
+            this.уровень1ToolStripMenuItem.Name = "уровень1ToolStripMenuItem";
+            this.уровень1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.уровень1ToolStripMenuItem.Text = "Уровень 1";
+            this.уровень1ToolStripMenuItem.Click += new System.EventHandler(this.уровень1ToolStripMenuItem_Click);
+            // 
+            // уровень2ToolStripMenuItem
+            // 
+            this.уровень2ToolStripMenuItem.Name = "уровень2ToolStripMenuItem";
+            this.уровень2ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.уровень2ToolStripMenuItem.Text = "Уровень 2";
+            this.уровень2ToolStripMenuItem.Click += new System.EventHandler(this.уровень2ToolStripMenuItem_Click);
+            // 
+            // уровень3ToolStripMenuItem
+            // 
+            this.уровень3ToolStripMenuItem.Name = "уровень3ToolStripMenuItem";
+            this.уровень3ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.уровень3ToolStripMenuItem.Text = "Уровень 3";
+            this.уровень3ToolStripMenuItem.Click += new System.EventHandler(this.уровень3ToolStripMenuItem_Click);
+            // 
+            // уровень4ToolStripMenuItem
+            // 
+            this.уровень4ToolStripMenuItem.Name = "уровень4ToolStripMenuItem";
+            this.уровень4ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.уровень4ToolStripMenuItem.Text = "Уровень 4";
+            this.уровень4ToolStripMenuItem.Click += new System.EventHandler(this.уровень4ToolStripMenuItem_Click);
+            // 
+            // уровень5ToolStripMenuItem
+            // 
+            this.уровень5ToolStripMenuItem.Name = "уровень5ToolStripMenuItem";
+            this.уровень5ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.уровень5ToolStripMenuItem.Text = "Уровень 5";
+            this.уровень5ToolStripMenuItem.Click += new System.EventHandler(this.уровень5ToolStripMenuItem_Click);
+            // 
+            // уровень6ToolStripMenuItem
+            // 
+            this.уровень6ToolStripMenuItem.Name = "уровень6ToolStripMenuItem";
+            this.уровень6ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.уровень6ToolStripMenuItem.Text = "Уровень 6";
+            this.уровень6ToolStripMenuItem.Click += new System.EventHandler(this.уровень6ToolStripMenuItem_Click);
+            // 
+            // уровень7ToolStripMenuItem
+            // 
+            this.уровень7ToolStripMenuItem.Name = "уровень7ToolStripMenuItem";
+            this.уровень7ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.уровень7ToolStripMenuItem.Text = "Уровень 7";
+            this.уровень7ToolStripMenuItem.Click += new System.EventHandler(this.уровень7ToolStripMenuItem_Click);
+            // 
+            // уровень8ToolStripMenuItem
+            // 
+            this.уровень8ToolStripMenuItem.Name = "уровень8ToolStripMenuItem";
+            this.уровень8ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.уровень8ToolStripMenuItem.Text = "Уровень 8";
+            this.уровень8ToolStripMenuItem.Click += new System.EventHandler(this.уровень8ToolStripMenuItem_Click);
+            // 
+            // уровень9ToolStripMenuItem
+            // 
+            this.уровень9ToolStripMenuItem.Name = "уровень9ToolStripMenuItem";
+            this.уровень9ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.уровень9ToolStripMenuItem.Text = "Уровень 9";
+            this.уровень9ToolStripMenuItem.Click += new System.EventHandler(this.уровень9ToolStripMenuItem_Click);
+            // 
+            // уровень10ToolStripMenuItem
+            // 
+            this.уровень10ToolStripMenuItem.Name = "уровень10ToolStripMenuItem";
+            this.уровень10ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.уровень10ToolStripMenuItem.Text = "Уровень 10";
+            this.уровень10ToolStripMenuItem.Click += new System.EventHandler(this.уровень10ToolStripMenuItem_Click);
+            // 
+            // уровень11ToolStripMenuItem
+            // 
+            this.уровень11ToolStripMenuItem.Name = "уровень11ToolStripMenuItem";
+            this.уровень11ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.уровень11ToolStripMenuItem.Text = "Уровень 11";
+            this.уровень11ToolStripMenuItem.Click += new System.EventHandler(this.уровень11ToolStripMenuItem_Click);
+            // 
+            // уровень12ToolStripMenuItem
+            // 
+            this.уровень12ToolStripMenuItem.Name = "уровень12ToolStripMenuItem";
+            this.уровень12ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.уровень12ToolStripMenuItem.Text = "Уровень 12";
+            this.уровень12ToolStripMenuItem.Click += new System.EventHandler(this.уровень12ToolStripMenuItem_Click);
+            // 
+            // уровень13ToolStripMenuItem
+            // 
+            this.уровень13ToolStripMenuItem.Name = "уровень13ToolStripMenuItem";
+            this.уровень13ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.уровень13ToolStripMenuItem.Text = "Уровень 13";
+            this.уровень13ToolStripMenuItem.Click += new System.EventHandler(this.уровень13ToolStripMenuItem_Click);
+            // 
+            // уровень14ToolStripMenuItem
+            // 
+            this.уровень14ToolStripMenuItem.Name = "уровень14ToolStripMenuItem";
+            this.уровень14ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.уровень14ToolStripMenuItem.Text = "Уровень 14";
+            this.уровень14ToolStripMenuItem.Click += new System.EventHandler(this.уровень14ToolStripMenuItem_Click);
+            // 
+            // уровень15ToolStripMenuItem
+            // 
+            this.уровень15ToolStripMenuItem.Name = "уровень15ToolStripMenuItem";
+            this.уровень15ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.уровень15ToolStripMenuItem.Text = "Уровень 15";
+            this.уровень15ToolStripMenuItem.Click += new System.EventHandler(this.уровень15ToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -180,6 +319,21 @@
         private System.Windows.Forms.ToolStripMenuItem легкойСложностиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem среднейСложностиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem высокойСложностиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem уровень1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem уровень2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem уровень3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem уровень4ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem уровень5ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem уровень6ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem уровень7ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem уровень8ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem уровень9ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem уровень10ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem уровень11ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem уровень12ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem уровень13ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem уровень14ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem уровень15ToolStripMenuItem;
     }
 }
 

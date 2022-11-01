@@ -7,44 +7,23 @@ using SokobanWinForm.Interfases;
 
 namespace SokobanWinForm.Classes
 {
-    [Serializable]
+    /// <summary>
+    /// Контроллер игры - основной функционал по игровой логике
+    /// </summary>
+    [Serializable]    
     internal class ClassGameController: ClassLevelMatrix,  InterfaceMoving, InterfaceGameVictory
     {
-        //выше - множественное наследование (один класс и интерфейсы в нужном числе)
+        //выше - множественное наследование (один класс и интерфейсы в нужном количестве)
       
         public int count_step;
-
+        int gameLVL;
         /// <summary>
         /// Конструктор
         /// </summary>
-       public ClassGameController():base(8,5)            
+       public ClassGameController():base(5,6)            
         {
-            count_step = 0;
-            //заполнение матрицы уровня, пока так - потом сделать из файла
-            for (int i = 0; i < i_count; i++)
-                for(int j = 0; j < j_count; j++)
-                { LevelMatrix[i, j] = MatrixValue.z; }
-
-            for (int i = 0; i < i_count; i++)
-            {
-                LevelMatrix[i, j_count -1] = MatrixValue.w;
-                LevelMatrix[i, 0] = MatrixValue.w;
-            }
-
-            for(int i = 0; i < j_count; i++)
-            {
-                LevelMatrix[0, i] = MatrixValue.w;
-                LevelMatrix[i_count -1, i] = MatrixValue.w;
-            }
-            LevelMatrix[1, 1] = MatrixValue.p;
-            LevelMatrix[2, 1] = MatrixValue.b;
-            LevelMatrix[3, 1] = MatrixValue.t;
-            LevelMatrix[4, 1] = MatrixValue.b;
-            LevelMatrix[5, 1] = MatrixValue.t;
-            LevelMatrix[4, 3] = MatrixValue.b;
-            LevelMatrix[1, 3] = MatrixValue.t;
-
-
+            startLvl(1);
+          
 
         }
 
@@ -442,6 +421,13 @@ namespace SokobanWinForm.Classes
         public string getSteps()
         {
             return $"Пройдено шагов: {count_step}";
+        }
+
+        public void startLvl(int lvl)
+        {
+            this.LoadFromFile($"Levels/{lvl}.lvl");
+            count_step = 0;
+            gameLVL = lvl;
         }
 
     }

@@ -33,8 +33,8 @@ namespace SokobanWinForm
             
             if (pictures != null)
             {
-                for (int i = 0; i < GameController.i_count; i++)
-                    for (int j = 0; j < GameController.j_count; j++)
+                for (int i = 0; i < pictures.GetLength(0); i++)
+                    for (int j = 0; j < pictures.GetLength(1); j++)
                         panel1.Controls.Remove(pictures[i, j]);                
             }
           pictures = new PictureBox[GameController.i_count, GameController.j_count];
@@ -75,7 +75,7 @@ namespace SokobanWinForm
                     panel1.Controls.Add(pictures[i, j]);
                     
                 }
-
+            toolStripStatusLabel1.Text = GameController.getSteps();
 
         }
 
@@ -107,13 +107,20 @@ namespace SokobanWinForm
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GameController.SaveToFile("5.lvl");
+            GameController.SaveToFile(DateTime.Now.Ticks +".lvl");
         }
 
         private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GameController.LoadFromFile("5.lvl");
+           // GameController.LoadFromFile("15.lvl");
             RePaint();
+        }
+
+        private void GoLVL(int level)
+        {
+            GameController.startLvl(level);
+            RePaint();
+            this.Text = $"Сокобан, уровень {level}";
         }
 
         private void перезапуститьТекущийToolStripMenuItem_Click(object sender, EventArgs e)
@@ -123,6 +130,83 @@ namespace SokobanWinForm
                 GameController.RestartLevel();
                 RePaint();
              }
+        }
+
+        private void уровень1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoLVL(1);
+
+        }
+
+        private void уровень2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoLVL(2);
+        }
+
+        private void уровень3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoLVL(3);
+
+        }
+
+        private void уровень4ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoLVL(4);
+        }
+
+        private void уровень5ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoLVL(5);
+        }
+
+        private void уровень6ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoLVL(6);
+        }
+
+        private void уровень7ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoLVL(7);
+        }
+
+        private void уровень8ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoLVL(8);
+        }
+
+        private void уровень9ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoLVL(9);
+        }
+
+        private void уровень10ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoLVL(10);
+        }
+
+        private void уровень11ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoLVL(11);
+        }
+
+        private void уровень12ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoLVL(12);
+        }
+
+        private void уровень13ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoLVL(13);
+        }
+
+        private void уровень14ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoLVL(14);
+        }
+
+        private void уровень15ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoLVL(15);
         }
     }
 }
