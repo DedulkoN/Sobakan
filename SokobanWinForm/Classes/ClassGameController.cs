@@ -7,7 +7,7 @@ using SokobanWinForm.Interfases;
 
 namespace SokobanWinForm.Classes
 {
-    internal class ClassGameController: ClassLevelMatrix, InterfaceMoving
+    internal class ClassGameController: ClassLevelMatrix, InterfaceMoving, InterfaceWorkingWithFile
     {
         //выше - множественное наследование (один класс и интерфейсы в нужном числе)
 
@@ -46,7 +46,7 @@ namespace SokobanWinForm.Classes
         {
             ClassСoordinates coordinate = getPlayerCoordinate();
             //Проверка на выход за границу
-            if ((coordinate.j+1)==6) 
+            if ((coordinate.j+1)==j_count) 
                 return false;
 
             //перемещение на пустоe поле
@@ -71,7 +71,7 @@ namespace SokobanWinForm.Classes
             //сдвиг ящика обычный: в никуда, на пустое, на целевое
             if (LevelMatrix[coordinate.i, coordinate.j + 1] == MatrixValue.b )
             {
-                if ((coordinate.j + 2) == 6) 
+                if ((coordinate.j + 2) == j_count) 
                     return false;
 
                 if (LevelMatrix[coordinate.i, coordinate.j + 2] == MatrixValue.z)
@@ -95,7 +95,7 @@ namespace SokobanWinForm.Classes
             //сдвиг ящика с целевой точки
             if (LevelMatrix[coordinate.i, coordinate.j + 1] == MatrixValue.bt)
             {
-                if ((coordinate.j + 2) == 6)
+                if ((coordinate.j + 2) == j_count)
                     return false;
 
                 if (LevelMatrix[coordinate.i, coordinate.j + 2] == MatrixValue.z)
@@ -200,7 +200,7 @@ namespace SokobanWinForm.Classes
         {
             ClassСoordinates coordinate = getPlayerCoordinate();
             //Проверка на выход за границу
-            if ((coordinate.i + 1) == 5)
+            if ((coordinate.i + 1) == i_count)
                 return false;
 
             //перемещение на пустоe поле
@@ -225,7 +225,7 @@ namespace SokobanWinForm.Classes
             //сдвиг ящика обычный: в никуда, на пустое, на целевое
             if (LevelMatrix[coordinate.i + 1, coordinate.j] == MatrixValue.b)
             {
-                if ((coordinate.i + 2) == 5)
+                if ((coordinate.i + 2) == i_count)
                     return false;
 
                 if (LevelMatrix[coordinate.i + 2, coordinate.j] == MatrixValue.z)
@@ -247,23 +247,23 @@ namespace SokobanWinForm.Classes
             }
 
             //сдвиг ящика с целевой точки
-            if (LevelMatrix[coordinate.i - 1, coordinate.j] == MatrixValue.bt)
+            if (LevelMatrix[coordinate.i + 1, coordinate.j] == MatrixValue.bt)
             {
-                if ((coordinate.j - 2) == -1)
+                if ((coordinate.i + 2) == i_count)
                     return false;
 
-                if (LevelMatrix[coordinate.i - 2, coordinate.j] == MatrixValue.z)
+                if (LevelMatrix[coordinate.i + 2, coordinate.j] == MatrixValue.z)
                 {
-                    LevelMatrix[coordinate.i - 1, coordinate.j] = MatrixValue.pt;
-                    LevelMatrix[coordinate.i - 2, coordinate.j] = MatrixValue.b;
+                    LevelMatrix[coordinate.i + 1, coordinate.j] = MatrixValue.pt;
+                    LevelMatrix[coordinate.i + 2, coordinate.j] = MatrixValue.b;
                     LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
                     return true;
 
                 }
-                if (LevelMatrix[coordinate.i - 2, coordinate.j] == MatrixValue.t)
+                if (LevelMatrix[coordinate.i + 2, coordinate.j] == MatrixValue.t)
                 {
-                    LevelMatrix[coordinate.i - 1, coordinate.j] = MatrixValue.pt;
-                    LevelMatrix[coordinate.i - 2, coordinate.j] = MatrixValue.bt;
+                    LevelMatrix[coordinate.i + 1, coordinate.j] = MatrixValue.pt;
+                    LevelMatrix[coordinate.i + 2, coordinate.j] = MatrixValue.bt;
                     LevelMatrix[coordinate.i, coordinate.j] = MatrixValue.z;
                     return true;
                 }
