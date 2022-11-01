@@ -55,6 +55,7 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfases\InterfaceGameVictory.cs" />
     <Compile Include="Interfases\InterfaceMoving.cs" />
     <Compile Include="Interfases\InterfaceWorkingWithFile.cs" />
     <Compile Include="Program.cs" />

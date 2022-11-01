@@ -7,7 +7,7 @@ using SokobanWinForm.Interfases;
 
 namespace SokobanWinForm.Classes
 {
-    internal class ClassGameController: ClassLevelMatrix, InterfaceMoving
+    internal class ClassGameController: ClassLevelMatrix, InterfaceMoving, InterfaceGameVictory
     {
         //выше - множественное наследование (один класс и интерфейсы в нужном числе)
 
@@ -350,7 +350,17 @@ namespace SokobanWinForm.Classes
 
             return false;
         }
-      
+
+        public void Victory()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool VictoryValidate()
+        {
+            throw new NotImplementedException();
+        }
+
 
         /// <summary>
         /// Поиск нахождения игрока
