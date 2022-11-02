@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SokobanWinForm.Interfases;
 
 namespace SokobanWinForm.Classes
@@ -15,8 +11,17 @@ namespace SokobanWinForm.Classes
     {
         //выше - множественное наследование (один класс и интерфейсы в нужном количестве)
       
+        /// <summary>
+        /// число шагов
+        /// </summary>
         public int count_step;
+        /// <summary>
+        /// номер текущего уровня в игре
+        /// </summary>
         public int gameLVL;
+        /// <summary>
+        /// максимальный уровень в игре
+        /// </summary>
         static int maxLvl = 15;
         /// <summary>
         /// Конструктор
@@ -438,7 +443,10 @@ namespace SokobanWinForm.Classes
         {
             return $"Пройдено шагов: {count_step}";
         }
-
+        /// <summary>
+        /// запуск уровня
+        /// </summary>
+        /// <param name="lvl">номер уровня</param>
         public void startLvl(int lvl)
         {
             this.LoadFromFile($"Levels/{lvl}.lvl");

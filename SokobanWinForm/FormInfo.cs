@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace SokobanWinForm
 {
+    /// <summary>
+    /// форма вывода информации о проекте
+    /// </summary>
     public partial class FormInfo : Form
     {
         public FormInfo()

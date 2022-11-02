@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SokobanWinForm.Classes
+﻿namespace SokobanWinForm.Classes
 {
+    /// <summary>
+    /// координаты в матрице
+    /// </summary>
     public class ClassСoordinates
     {
+        /// <summary>
+        /// первая координата в матрице
+        /// </summary>
        public int i { get; set; }
+        /// <summary>
+        /// вторая координата в матрице
+        /// </summary>
        public int j { get; set; }
 
     }

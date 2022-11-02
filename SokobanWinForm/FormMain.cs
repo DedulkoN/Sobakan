@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using SokobanWinForm.Classes;
 
@@ -13,7 +7,13 @@ namespace SokobanWinForm
 {
     public partial class FormMain : Form
     {
+        /// <summary>
+        /// игровой контроллер
+        /// </summary>
         ClassGameController GameController = new ClassGameController();
+        /// <summary>
+        /// игровое поле
+        /// </summary>
         PictureBox[,] pictures;
         public FormMain()
         {
@@ -78,7 +78,11 @@ namespace SokobanWinForm
             toolStripStatusLabel1.Text = GameController.getSteps();
 
         }
-
+        /// <summary>
+        /// обработка нажатий клавиш
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormMain_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             switch(e.KeyCode)
@@ -102,6 +106,7 @@ namespace SokobanWinForm
             }
            
             toolStripStatusLabel1.Text = GameController.getSteps();
+            //проверка условий победы и обработка
             if (GameController.VictoryValidate())
             {
                 if (GameController.Victory())
