@@ -25,7 +25,7 @@ namespace SokobanWinForm
         /// <summary>
         /// Отрисовка и перерисовка игрового поля
         /// </summary>
-        public void RePaint()
+        private void RePaint()
         {
             //В методе динамически создаем нужное число картинок, запихиваем их, что б не потерялись в архив
             //если картинки уже есть - удаляем старые, создаем новые
@@ -126,6 +126,10 @@ namespace SokobanWinForm
             RePaint();
         }
 
+        /// <summary>
+        /// смена уровня
+        /// </summary>
+        /// <param name="level">номер уровня</param>
         private void GoLVL(int level)
         {
             GameController.startLvl(level);
@@ -217,6 +221,17 @@ namespace SokobanWinForm
         private void уровень15ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GoLVL(15);
+        }
+
+        private void информацияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormInfo formInfo = new FormInfo();
+            formInfo.Show();
+        }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -49,6 +49,12 @@
     <Compile Include="Classes\ClassGameController.cs" />
     <Compile Include="Classes\ClassLevelMatrix.cs" />
     <Compile Include="Classes\ClassСoordinates.cs" />
+    <Compile Include="FormInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInfo.Designer.cs">
+      <DependentUpon>FormInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     <Compile Include="Interfases\InterfaceWorkingWithFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormInfo.resx">
+      <DependentUpon>FormInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
