@@ -13,7 +13,7 @@
         /// <summary>
         /// обработка победы
         /// </summary>
-        void Victory();
+        bool Victory();
        
 
     }

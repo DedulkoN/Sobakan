@@ -18,7 +18,7 @@ namespace SokobanWinForm
         public FormMain()
         {
             InitializeComponent();
-            RePaint();
+            GoLVL(1);
         }
 
 
@@ -102,7 +102,17 @@ namespace SokobanWinForm
             }
            
             toolStripStatusLabel1.Text = GameController.getSteps();
-            if (GameController.VictoryValidate()) MessageBox.Show("победа!");
+            if (GameController.VictoryValidate())
+            {
+                if (GameController.Victory())
+                    MessageBox.Show($"Победа!{Environment.NewLine}Последний уровень завершен", "Victory!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                {
+                    RePaint();
+                    MessageBox.Show($"Уровень пройден{Environment.NewLine}Запущен следующий уровень" , "Victory!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Text = $"Сокобан, уровень {GameController.gameLVL}";
+                }
+            }
         }
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)

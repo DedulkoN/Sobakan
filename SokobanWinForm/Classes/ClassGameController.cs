@@ -16,7 +16,8 @@ namespace SokobanWinForm.Classes
         //выше - множественное наследование (один класс и интерфейсы в нужном количестве)
       
         public int count_step;
-        int gameLVL;
+        public int gameLVL;
+        static int maxLvl = 15;
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -369,10 +370,25 @@ namespace SokobanWinForm.Classes
             return false;
         }
 
-       
-        public void Victory()
+      /// <summary>
+      /// Победа в уровне
+      /// </summary>
+      /// <returns>истина, если нет перехода на уровень выше</returns>
+        public bool Victory()
         {
-            throw new NotImplementedException();
+            if (gameLVL==maxLvl)
+            {
+                return true;
+            }
+            else
+            {
+                gameLVL++;
+                startLvl(gameLVL);
+                return false;
+            }
+
+            
+
         }
 
         public bool VictoryValidate()
