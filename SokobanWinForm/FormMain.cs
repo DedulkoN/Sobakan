@@ -144,7 +144,7 @@ namespace SokobanWinForm
 
         private void перезапуститьТекущийToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Перезапустить уровень?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Перезапустить уровень?", "Restart", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 GameController.RestartLevel();
                 RePaint();
