@@ -17,8 +17,13 @@ namespace SokobanWinForm
         PictureBox[,] pictures;
         public FormMain()
         {
-            InitializeComponent();
-            GoLVL(1);
+            FormAutorization formAutorization = new FormAutorization();
+            if (formAutorization.ShowDialog() == DialogResult.OK)
+            {
+                InitializeComponent();
+                GoLVL(1);
+                GameController.playerName = formAutorization.PlayerName;
+            }
         }
 
 

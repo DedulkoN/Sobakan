@@ -47,8 +47,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ClassGameController.cs" />
+    <Compile Include="Classes\ClassHichStoreTable.cs" />
     <Compile Include="Classes\ClassLevelMatrix.cs" />
+    <Compile Include="Classes\ClasssScoreRecord.cs" />
     <Compile Include="Classes\ClassСoordinates.cs" />
+    <Compile Include="FormAutorization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAutorization.Designer.cs">
+      <DependentUpon>FormAutorization.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +74,9 @@
     <Compile Include="Interfases\InterfaceWorkingWithFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAutorization.resx">
+      <DependentUpon>FormAutorization.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormInfo.resx">
       <DependentUpon>FormInfo.cs</DependentUpon>
     </EmbeddedResource>

@@ -23,14 +23,23 @@ namespace SokobanWinForm.Classes
         /// максимальный уровень в игре
         /// </summary>
         static int maxLvl = 15;
+
+        /// <summary>
+        /// имя игрока
+        /// </summary>
+        public string playerName { get; set; }
+        
+        /// <summary>
+        /// время в текущем раунде
+        /// </summary>
+        int levelTime { get; set; }
+
         /// <summary>
         /// Конструктор
         /// </summary>
        public ClassGameController():base(5,6)            
         {
-            startLvl(1);
-          
-
+            startLvl(1);   
         }
 
 
@@ -431,6 +440,7 @@ namespace SokobanWinForm.Classes
         /// <returns></returns>
         public bool RestartLevel()
         {
+            levelTime = 0;
             count_step = 0;
             return LoadFromFile(thisFileName);
         }
@@ -451,6 +461,7 @@ namespace SokobanWinForm.Classes
         {
             this.LoadFromFile($"Levels/{lvl}.lvl");
             count_step = 0;
+            levelTime = 0;
             gameLVL = lvl;
         }
 
