@@ -20,10 +20,18 @@ namespace SokobanWinForm
             FormAutorization formAutorization = new FormAutorization();
             if (formAutorization.ShowDialog() == DialogResult.OK)
             {
-                InitializeComponent();
-                GoLVL(1);
+                
                 GameController.playerName = formAutorization.PlayerName;
             }
+            else
+            {
+                GameController.playerName = "Noname";
+            }
+
+            InitializeComponent();
+            GoLVL(1);
+            timerMain.Enabled = true;
+
         }
 
 
@@ -115,11 +123,13 @@ namespace SokobanWinForm
             if (GameController.VictoryValidate())
             {
                 if (GameController.Victory())
+                {
                     MessageBox.Show($"Победа!{Environment.NewLine}Последний уровень завершен", "Victory!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 else
                 {
                     RePaint();
-                    MessageBox.Show($"Уровень пройден{Environment.NewLine}Запущен следующий уровень" , "Victory!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Уровень пройден{Environment.NewLine}Запущен следующий уровень", "Victory!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Text = $"Сокобан, уровень {GameController.gameLVL}";
                 }
             }
@@ -242,6 +252,18 @@ namespace SokobanWinForm
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void timerMain_Tick(object sender, EventArgs e)
+        {
+            GameController.levelTime++;
+            toolStripStatusLabel2.Text = $" | Время раунда: {GameController.levelTime} секунд";
+        }
+
+        private void таблицаРекордовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormStore formStore = new FormStore();
+            formStore.Show();
         }
     }
 }

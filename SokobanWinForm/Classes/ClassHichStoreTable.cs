@@ -12,12 +12,22 @@ namespace SokobanWinForm.Classes
     /// Таблица рекордов
     /// </summary>
     [Serializable]
-    internal class ClassHichStoreTable
+    public class ClassHichStoreTable
     {
+        /// <summary>
+        /// таблица с результатами
+        /// </summary>
         public List<ClasssScoreRecord> scores;
-
+        /// <summary>
+        /// файл сохранения рекордов
+        /// </summary>
         [NonSerialized]
-        private string filename = "HichStore.bin";
+        private const string filename = "HichStore.bin";
+        /// <summary>
+        /// макс записей на уровень
+        /// </summary>
+        [NonSerialized]
+        private const int maxRecords = 10;
 
         public ClassHichStoreTable()
         {
@@ -65,6 +75,36 @@ namespace SokobanWinForm.Classes
                 return true;
             }
             catch { return false; }
+        }
+
+        /// <summary>
+        /// Попытка записи в таблицу рекордов
+        /// </summary>
+        /// <param name="PlayerName">Имя игрока</param>
+        /// <param name="Sctore">Очки/секунды</param>
+        /// <param name="Level">Уровень</param>
+        /// <returns>истина, если результат записан</returns>
+        public bool InSctore(string PlayerName, int Sctore, int Level)
+        {
+            var LevelScore = scores.Where(e => e.Level == Level);
+            if (LevelScore.Count()< maxRecords)
+            {
+                //если записей меньше максимума - сохраняем
+                scores.Add(new ClasssScoreRecord(Sctore, PlayerName, Level));
+                return true;
+            }
+            else
+            {
+                int maxScore = LevelScore.Max(e => e.Score);
+                if (maxScore > Sctore)
+                {
+                    var temp = LevelScore.Where(e => e.Score == maxScore).First();
+                    scores.Remove(temp);
+                    scores.Add(new ClasssScoreRecord(Sctore, PlayerName, Level));
+                    return true;
+                }
+            }
+            return false;
         }
 
     }

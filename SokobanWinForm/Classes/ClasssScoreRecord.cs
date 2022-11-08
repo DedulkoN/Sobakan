@@ -6,7 +6,7 @@ namespace SokobanWinForm.Classes
     /// запись в таблице рекордов
     /// </summary>
     [Serializable]
-    internal class ClasssScoreRecord
+    public class ClasssScoreRecord
     {
         /// <summary>
         /// кол-во очков
@@ -16,7 +16,9 @@ namespace SokobanWinForm.Classes
         /// игрок
         /// </summary>
         public string Player { get; set; }
-
+        /// <summary>
+        /// уровень
+        /// </summary>
         public int Level { get; set; }
 
         public ClasssScoreRecord()

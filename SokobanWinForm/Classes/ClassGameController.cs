@@ -32,14 +32,21 @@ namespace SokobanWinForm.Classes
         /// <summary>
         /// время в текущем раунде
         /// </summary>
-        int levelTime { get; set; }
+        public int levelTime { get; set; }
+
+        [NonSerialized]
+        /// <summary>
+        /// таблица рекордов
+        /// </summary>
+        ClassHichStoreTable storeTable = new ClassHichStoreTable();
 
         /// <summary>
         /// Конструктор
         /// </summary>
        public ClassGameController():base(5,6)            
         {
-            startLvl(1);   
+            startLvl(1);
+            storeTable.LoadData();
         }
 
 
@@ -390,6 +397,12 @@ namespace SokobanWinForm.Classes
       /// <returns>истина, если нет перехода на уровень выше</returns>
         public bool Victory()
         {
+            if( storeTable.InSctore(playerName, levelTime, gameLVL) )
+            {
+                storeTable.SaveData();
+                System.Windows.Forms.MessageBox.Show("Ваш результат попал в таблицу рекордов!");
+            }
+
             if (gameLVL==maxLvl)
             {
                 return true;
